@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Uso de extrusion</title>
+    <title>Uso de revolución</title>
     <meta http-equiv="Content-Type"
       content="text/html; charset=UTF-8">
     <style>
@@ -18,30 +18,38 @@
     var near = 1;
     var far = 1000;
     var camara = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    
     camara.position.z = 500;
-    
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     
-    //
-    
+    //La figura se establece sobre el plano zx
     var puntos = [];
     for (var i = 0; i < 50; i++ ) {
-      puntos.push( new THREE.Vector2(   //Se insertan los puntos al arreglo
+     puntos.push( new THREE.Vector2(   //Se insertan los puntos al arreglo
        Math.sin( i * 0.2 ) * 15 + 50,  //Eje x
-       (i - 5) * 2 ) )
+       (i - 5) * 2 ) );                //Eje z
+    }
+    //puntos.push( new THREE.Vector2(10, 10));
+    //puntos.push( new THREE.Vector2(20, 10));
+    //puntos.push( new THREE.Vector2(20, 20));
+    //puntos.push( new THREE.Vector2(30, 20));
+    //puntos.push( new THREE.Vector2(30, 30));
+    //puntos.push( new THREE.Vector2(40, 30));
+    //puntos.push( new THREE.Vector2(40, 50));
+    //puntos.push( new THREE.Vector2(20, 50));
+    //puntos.push( new THREE.Vector2(20, 60));
+    //puntos.push( new THREE.Vector2(10, 60));
     
     
-    var forma = new THREE.LatheGeometry(puntos);
+    var forma = new THREE.LatheGeometry( puntos);   //La revolucion se realiza sobre el eje y
     var malla = new THREE.Mesh(forma);
     
     escena.add(malla);
     function render() {
       requestAnimationFrame( render );
       malla.rotation.x += 0.01;
-      malla.rotation.y += 0.01;
+      //malla.rotation.y += 0.01;
       
       renderer.render( escena, camara);
     }
