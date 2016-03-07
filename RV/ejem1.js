@@ -30,10 +30,10 @@ document.body.appendChild(renderer.domElement);
 function loop(){
  requestAnimationFrame (loop);
  request.renderer(escena, camara);
- if (Math.abs(piernad,rotation.z) > .5)
- step= step;
+ if (Math.abs(piernaD,rotation.z) > .5)
+ step= -step;
  piernaD.rotation.z +=step;
-  piernaIrotation.z -=step;
+ piernaIrotation.z -=step;
 }
 var escena, camara, renderer;
 var step, piernaD, piernaI;
