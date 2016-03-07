@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Leccion 24feb</title>
+    <meta http-equiv="Content-Type"
+      content="text/html; charset=UTF-8">
+    <style>
+      body { margin: 0; }
+      canvas { width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+  <script src="three.min.js"></script>
+  <script>
+    var escena = new THREE.Scene();
+    var fov = 75;
+    var aspect = window.innerWidth / window.innerHeight;
+    var near = 0.1;
+    var far = 1000;
+    var camara = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    
+    camara.position.z = 200;
+    
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    
+    var figura =new THREE.Shape();
+    // las figuras se realizan sobre el plano xy
+    figura.moveTo(20, 10);
+    figura.lineTo(40, 25);
+    figura.lineTo(60, 10);
+    figura.lineTo(55, 35);
+    figura.lineTo(75, 55);
+    figura.lineTo(50, 55);
+    figura.lineTo(40, 80);
+    figura.lineTo(30, 55);
+    figura.lineTo(5, 55);
+    figura.lineTo(25, 35);
+    figura.lineTo(20, 10);
+    
+    var forma = new THREE.ShapeGeometry(figura);
+    var malla = new THREE.Mesh(forma);
+    
+    escena.add(malla);
+    function render() {
+      requestAnimationFrame(render);
+      malla.rotation.x += 0.01;
+      malla.rotation.y += 0.01;
+      
+      renderer.render(escena,camara);
+    }
+    render();
+  </script>
+  </body>
+</html>
