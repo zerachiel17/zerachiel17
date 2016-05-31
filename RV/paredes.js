@@ -2,7 +2,7 @@ function Wall(){
   THREE.Object3D.call(this);
   var texture = new THREE.TextureLoader().load( './paredes.jpg');
   
-  this.wall = new THREE.Mesh(new THREE.BoxGeometry(20,5,0.5),
+  this.wall = new THREE.Mesh(new THREE.BoxGeometry(30,5,0.5),
                        new THREE.MeshBasicMaterial({map:texture}));
   texture.anisotropy = 16;
   this.add(this.wall);
