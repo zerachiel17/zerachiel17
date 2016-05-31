@@ -19,13 +19,13 @@ var points = [];
   points.push(new THREE.Vector2(2,-1.5));
   points.push(new THREE.Vector2(0,-1.5));
  
-  var headForm = new THREE.SphereGeometry(0.5);
+  var headForm = new THREE.CubeGeometry(0.5, 0.5, 0.5)
   //var headForm = new THREE.DodecahedronGeometry(0.5);
   var esferaForma = new THREE.SphereGeometry(1);
   var legForm = new THREE.CylinderGeometry(0.1,0.1,2);
   var bodyForm = new THREE.LatheGeometry(points);
   var footForm = new THREE.TorusGeometry(0.3,0.05,16,100);
-  var redTexture = new THREE.ImageUtils.loadTexture('./red.jpg');
+  var redTexture = new THREE.ImageUtils.loadTexture('./blue.jpg');
   
   var material = new THREE.MeshBasicMaterial({
     map:redTexture,
