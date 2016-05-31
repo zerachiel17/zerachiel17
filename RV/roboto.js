@@ -5,10 +5,10 @@ function setup(){
   points.push(new THREE.Vector2(2,-1.5));
   points.push(new THREE.Vector2(0,-1.5));
   
-  var headForm = new THREE.CubeGeometry(0.5, 0.5, 0.5);
+  var headForm = new THREE.CubeGeometry(1, 1, 1);
   var esferaForma = new THREE.SphereGeometry(1);
   var legForm = new THREE.CylinderGeometry(0.1,0.1,2);
-  var bodyForm = new THREE.LatheGeometry(points, 20, 0, 2*Math.PI);//LatheGeometry(points, segments, phiStart, phiLength)
+  var bodyForm = new THREE.LatheGeometry(points, 20, 0, 2*Math.PI);
   var footForm = new THREE.TorusGeometry(0.3,0.05,16,100);
   var redTexture = new THREE.ImageUtils.loadTexture('./blue.jpg');
   var material = new THREE.MeshBasicMaterial({
