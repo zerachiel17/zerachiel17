@@ -4,73 +4,76 @@ function setup(){
  dia = 0.1;
  mul=1;
  
+ var redTexture = new THREE.ImageUtils.loadTexture('./blue.jpg');
+ var material = new THREE.MeshBasicMaterial({map:redTexture,
+ side:THREE.DoubleSide});
  var cilindroForma1=new THREE.CylinderGeometry(dia, dia, 2);
- var cilindro1 = new THREE.Mesh(cilindroForma1);
+ var cilindro1 = new THREE.Mesh(cilindroForma1,material);
  cilindro1.rotateX(1.57);
  cilindro1.position.x=2;
  cilindro1.position.y=2;
  
  var cilindroForma2=new THREE.CylinderGeometry(dia, dia, 3);
- var cilindro2 = new THREE.Mesh(cilindroForma2);
+ var cilindro2 = new THREE.Mesh(cilindroForma2,material);
  cilindro2.position.x=2;
  cilindro2.position.y=3.5;
  cilindro2.position.z=-1;
  
  var cilindroForma3=new THREE.CylinderGeometry(dia, dia, 3);
- var cilindro3 = new THREE.Mesh(cilindroForma3);
+ var cilindro3 = new THREE.Mesh(cilindroForma3,material);
  cilindro3.position.x=2;
  cilindro3.position.y=3.5;
  cilindro3.position.z=1;
  
  var cilindroForma4=new THREE.CylinderGeometry(dia, dia, 2);
- var cilindro4 = new THREE.Mesh(cilindroForma4);
+ var cilindro4 = new THREE.Mesh(cilindroForma4,material);
  cilindro4.rotateX(1.57);
  cilindro4.position.x=2;
  cilindro4.position.y=5;
  
  var cilindroForma5=new THREE.CylinderGeometry(dia, dia, 3);
- var cilindro5 = new THREE.Mesh(cilindroForma5);
+ var cilindro5 = new THREE.Mesh(cilindroForma5,material);
  cilindro5.position.x=2;
  cilindro5.position.y=6.5;
  
  var cilindroForma6=new THREE.CylinderGeometry(dia, dia, 8);
- var cilindro6 = new THREE.Mesh(cilindroForma6);
+ var cilindro6 = new THREE.Mesh(cilindroForma6,material);
  cilindro6.rotateX(1.57);
  cilindro6.position.x=2;
  cilindro6.position.y=8;
  
  var cilindroForma7=new THREE.CylinderGeometry(dia, dia, 4);
- var cilindro7 = new THREE.Mesh(cilindroForma7);
+ var cilindro7 = new THREE.Mesh(cilindroForma7,material);
  cilindro7.rotateZ(1.57);
  cilindro7.position.x=4;
  cilindro7.position.y=5;
  
  var cilindroForma8=new THREE.CylinderGeometry(dia, dia, 4.95);
- var cilindro8 = new THREE.Mesh(cilindroForma8);
+ var cilindro8 = new THREE.Mesh(cilindroForma8,material);
  cilindro8.rotateZ(0.785);
  cilindro8.position.x=7.75;
  cilindro8.position.y=3.25;
  
  var cilindroForma9=new THREE.CylinderGeometry(dia, dia, 6);
- var cilindro9 = new THREE.Mesh(cilindroForma9);
+ var cilindro9 = new THREE.Mesh(cilindroForma9,material);
  cilindro9.rotateX(1.57);
  cilindro9.position.x=9.5;
  cilindro9.position.y=1.5;
  
  var ruedaForma1=new THREE.CylinderGeometry(2, 2, 1, 25);
- var rueda1 = new THREE.Mesh(ruedaForma1);
+ var rueda1 = new THREE.Mesh(ruedaForma1,material);
  rueda1.rotateX(1.57);
  rueda1.position.x=2;
  rueda1.position.y=2;
  
  var ruedaForma2=new THREE.CylinderGeometry(1.5, 1.5, 1, 25);
- var rueda2 = new THREE.Mesh(ruedaForma2);
+ var rueda2 = new THREE.Mesh(ruedaForma2,material);
  rueda2.rotateX(1.57);
  rueda2.position.x=9.5;
  rueda2.position.y=1.5;
  rueda2.position.z=2.5;
  
- var rueda3 = new THREE.Mesh(ruedaForma2);
+ var rueda3 = new THREE.Mesh(ruedaForma2,material);
  rueda3.rotateX(1.57);
  rueda3.position.x=9.5;
  rueda3.position.y=1.5;
