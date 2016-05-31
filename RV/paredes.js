@@ -1,6 +1,6 @@
 function Wall(){
   THREE.Object3D.call(this);
-  var texture = new THREE.TextureLoader().load( './paredes.jpg');
+  var texture = new THREE.TextureLoader().load( './walls.jpg');
   
   this.wall = new THREE.Mesh(new THREE.BoxGeometry(20,5,0.5),
                        new THREE.MeshBasicMaterial({map:texture}));
@@ -19,6 +19,8 @@ var points = [];
   points.push(new THREE.Vector2(2,-1.5));
   points.push(new THREE.Vector2(0,-1.5));
  
+  var headForm = new THREE.TorusKnotGeometry(0.5, 0.1, 100, 10 );
+  //var headForm = new THREE.DodecahedronGeometry(0.5);
   var esferaForma = new THREE.SphereGeometry(1);
   var legForm = new THREE.CylinderGeometry(0.1,0.1,2);
   var bodyForm = new THREE.LatheGeometry(points);
@@ -27,6 +29,7 @@ var points = [];
   var material = new THREE.MeshNormalMaterial(  );
   
   
+  var head  = new THREE.Mesh(headForm,material);
   var esfera2 = new THREE.Mesh(esferaForma);
   var body = new THREE.Mesh(bodyForm, material);
   var leg1 = new THREE.Mesh(legForm);
@@ -47,11 +50,13 @@ var points = [];
   
   leg2.position.x = -.25,
   leg2.position.y = -2.5,
+  head.position.y = 3;
   
 
   var forma = new THREE.Geometry();
   THREE.GeometryUtils.merge(forma,foot1);
   THREE.GeometryUtils.merge(forma, foot2);
+  THREE.GeometryUtils.merge(forma, head);
   THREE.GeometryUtils.merge(forma, leg1);
   THREE.GeometryUtils.merge(forma, leg2);
   THREE.GeometryUtils.merge(forma, body);
