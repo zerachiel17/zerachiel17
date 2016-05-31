@@ -25,8 +25,12 @@ var points = [];
   var legForm = new THREE.CylinderGeometry(0.1,0.1,2);
   var bodyForm = new THREE.LatheGeometry(points);
   var footForm = new THREE.TorusGeometry(0.3,0.05,16,100);
+  var redTexture = new THREE.ImageUtils.loadTexture('./red.jpg');
   
-  var material = new THREE.MeshNormalMaterial(  );
+  var material = new THREE.MeshBasicMaterial({
+    map:redTexture,
+    side:THREE.DoubleSide
+  });
   
   
   var head  = new THREE.Mesh(headForm,material);
