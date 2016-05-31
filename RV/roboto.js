@@ -5,7 +5,7 @@ function setup(){
   points.push(new THREE.Vector2(2,-1.5));
   points.push(new THREE.Vector2(0,-1.5));
   
-  var headForm = new THREE.CubeGeometry(1, 1, 1);
+  var headForm = new THREE.CubeGeometry(2.5, 2.5, 2.5);
   var esferaForma = new THREE.SphereGeometry(1);
   var legForm = new THREE.CylinderGeometry(0.1,0.1,2);
   var bodyForm = new THREE.LatheGeometry(points, 20, 0, 2*Math.PI);
