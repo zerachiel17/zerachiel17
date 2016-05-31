@@ -22,37 +22,33 @@ Environment.prototype.setMap=function(map){
 
 function setup(){
   
-  floor = new THREE.Mesh(new THREE.BoxGeometry(22,22,0.5),new THREE.MeshPhongMaterial({color:0xf2f2f2}));
+  floor = new THREE.Mesh(new THREE.BoxGeometry(19.5,20,0.5),new THREE.MeshPhongMaterial({color:0xf2f2f2}));
   floor.position.z = -1;
   iluminacion = new THREE.PointLight(0x8533ff);
   iluminacion.position.z = 10;
   var mapa = new Array();
   
-  mapa[0]  = "xxxxxxxxxxxxxxxxxxxxxxxx";
-  mapa[1]  = "xr              r      x";
-  mapa[2]  = "x                      x";
-  mapa[3]  = "x                      x"; 
-  mapa[4]  = "x                      x";
-  mapa[5]  = "x                      x";
-  mapa[6]  = "x                      x"; 
-  mapa[7]  = "x                      x";
-  mapa[8]  = "xxx   xxxxxxxxxxxxxxxxxx";
-  mapa[9]  = "x                      x";
-  mapa[10] = "x    r                 x"; 
-  mapa[11] = "x                      x";
-  mapa[12] = "xxxxxxxxxxxxxxxxx  xxxxx";
-  mapa[13] = "x                      x";
-  mapa[14] = "x                      x";
-  mapa[15] = "x                      x";
-  mapa[16] = "x                      x";
-  mapa[17] = "x                      x";
-  mapa[18] = "x                      x";
-  mapa[19] = "xxxxxxxxx   xxxxxxxxxxxx";
-  mapa[20] = "x                      x";
-  mapa[21] = "x                      x";
-  mapa[22] = "x                      x";
-  mapa[23] = "x                      x";
-  mapa[24] = "xxxxxxxxxxxxxxxxxxxxxxxx";
+  mapa[0]  = "xxxxxxxxxxxxxxxxxxxx";
+  mapa[1]  = "xr              r  x";
+  mapa[2]  = "x                  x";
+  mapa[3]  = "x                  x"; 
+  mapa[4]  = "x                  x";
+  mapa[5]  = "x                  x";
+  mapa[6]  = "xxx   xxxxxxxxxxxxxx";
+  mapa[7]  = "x                  x";
+  mapa[8]  = "x    r             x"; 
+  mapa[9]  = "x                  x";
+  mapa[10] = "xxxxxxxxxxxxx  xxxxx";
+  mapa[11] = "x                  x";
+  mapa[12] = "x                  x";
+  mapa[13] = "x                  x";
+  mapa[14] = "x                  x";
+  mapa[15] = "xxxxxxxxx   xxxxxxxx";
+  mapa[16] = "x                  x";
+  mapa[17] = "x                  x";
+  mapa[18] = "x                  x";
+  mapa[19] = "x                  x";
+  mapa[20] = "xxxxxxxxxxxxxxxxxxxx";
   
   
   environment = new Environment();
