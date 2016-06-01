@@ -1,5 +1,5 @@
 function Wall(size,x,y){
-  var texture = new THREE.TextureLoader().load( "./pasto.jpg" );
+  var texture = new THREE.TextureLoader().load( "./paredes.jpg" );
   texture.anisotropy = 16;
   THREE.Mesh.call(this,new THREE.BoxGeometry(size,size,size),new THREE.MeshPhongMaterial({map:texture}));
   this.size=size;
@@ -23,7 +23,7 @@ Environment.prototype.setMap=function(map){
 }
 
 function setup(){
-  var floorTexture = new THREE.TextureLoader().load( "./floor.jpg" );
+  var floorTexture = new THREE.TextureLoader().load( "./pasto.jpg" );
   floorTexture.anisotropy = 16;
   var rowSet = Math.floor(Math.random()*25);
   var colSet = Math.floor(Math.random()*25);
@@ -31,12 +31,11 @@ function setup(){
   floor.position.z = -1;
   reflector = new THREE.SpotLight(0xFFFFFF,0.5,200,0.10,0.087);
   reflector.position.set(0,-12.5,10);
-  iluminacionR = new THREE.PointLight(0xFF0000,0.5);
-  iluminacionR.position.set(0,2.5,15);
-  iluminacionG = new THREE.PointLight(0x00FF00,0.5);
-  iluminacionG.position.set(-2.5,-2.5,15);
-  iluminacionB = new THREE.PointLight(0x0000FF,0.5);
-  iluminacionB.position.set(2.5,-2.5,15);
+ 
+  floor.position.z=-0.5;
+  iluminacion = new THREE.PointLight(0xffffff);
+  iluminacion.position.z=20;
+  iluminacion.position.y=10;
   
   var mapa = new Array();
   mapa[0]  = "x xxxxxxxxxxxxxxxxxxxxxxx";
@@ -80,7 +79,7 @@ function setup(){
   environment = new Environment();
   
   environment.setMap(mapa);
-  environment.add(floor, iluminacionR,iluminacionG,iluminacionB,reflector,reflector.target);
+  environment.add(floor, iluminacion ,reflector.target);
  
   camara=new THREE.PerspectiveCamera();
   camara.position.z=30;
@@ -93,9 +92,7 @@ function setup(){
    floor.receiveShadow = true;
    renderer.shadowMap.enabled=true;
  reflector.castShadow = true;
- iluminacionR.castShadow=true;
-  iluminacionG.castShadow=true;
-   iluminacionB.castShadow=true;
+ iluminacion.castShadow=true;
 }
 
 function loop(){
@@ -108,7 +105,7 @@ function loop(){
   renderer.render(environment,camara);
 }
 
-var environment, camera, renderer,floor, iluminacionR,iluminacionG,iluminacionB,reflector;
+var environment, camera, renderer,floor, iluminacion,reflector;
 
 setup();
 loop();
